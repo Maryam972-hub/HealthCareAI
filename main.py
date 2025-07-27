@@ -1,33 +1,12 @@
+from dotenv import load_dotenv
 import os
-
-os.environ['GMAIL_ADDRESS'] = 'medicalreport257@gmail.com'
-os.environ['GMAIL_APP_PASSWORD'] = 'blmwncugaicvclaf'
-os.environ['GEOAPIFY_KEY'] = '275c02ba10814fc2b2ddde13601f5db6'
-os.environ['GROQ_API_KEY'] = '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'
-
-# Verify
-print("Email:", repr(os.environ['GMAIL_ADDRESS']))
-print("Password:", repr(os.environ['GMAIL_APP_PASSWORD']))
-print("Geoapify Key:", repr(os.environ['GEOAPIFY_KEY']))
-print("Groq Key:", repr(os.environ['GROQ_API_KEY']))
-
-import os
-# os.listdir('/content')
-import os
-print(os.listdir('Z:\\AI and Data science\\Machine Learning\\Linear Regression'))  # Use your project directory
-
-
-# === Full Working Code with Fixed PDF Generation, Email, Theme Toggle ===
-
 import streamlit as st
 from PIL import Image
 import base64
-import re
 import requests
 import pandas as pd
-from fpdf import FPDF
+from fpdf2 import FPDF  # Use fpdf2 instead of fpdf
 import smtplib
-import os
 from gtts import gTTS
 from tempfile import NamedTemporaryFile
 from email.mime.multipart import MIMEMultipart
@@ -35,6 +14,43 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 from groq import Groq
+
+# Load environment variables (for local development)
+load_dotenv()
+
+# Verify environment variables
+print("Email:", repr(os.environ['GMAIL_ADDRESS']))
+print("Password:", repr(os.environ['GMAIL_APP_PASSWORD']))
+print("Geoapify Key:", repr(os.environ['GEOAPIFY_KEY']))
+print("Groq Key:", repr(os.environ['GROQ_API_KEY']))
+
+# Optional: List files in the current directory (only for local testing)
+
+    
+
+
+
+if os.getenv('LOCAL_DEV'):
+    print("Files in project directory:", os.listdir('.'))
+
+# === Full Working Code with Fixed PDF Generation, Email, Theme Toggle ===
+
+# import streamlit as st
+# from PIL import Image
+# import base64
+# import re
+# import requests
+# import pandas as pd
+# from fpdf import FPDF
+# import smtplib
+# import os
+# from gtts import gTTS
+# from tempfile import NamedTemporaryFile
+# from email.mime.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
+# from email.mime.base import MIMEBase
+# from email import encoders
+# from groq import Groq
 
 # -------------------- PDF Class -------------------- #
 class PDF(FPDF):

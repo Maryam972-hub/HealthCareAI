@@ -1,0 +1,8 @@
+streamlit
+pillow
+requests
+pandas
+fpdf2
+tensorflow
+gtts
+groq

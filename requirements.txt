@@ -2,7 +2,8 @@ streamlit
 pillow
 requests
 pandas
-fpdf2
-tensorflow
+fpdf
 gtts
 groq
+python-dotenv
+python-3.12

@@ -5,7 +5,7 @@ from PIL import Image
 import base64
 import requests
 import pandas as pd
-from fpdf2 import FPDF  # Use fpdf2 instead of fpdf
+from fpdf import FPDF  # Use fpdf2 instead of fpdf
 import smtplib
 from gtts import gTTS
 from tempfile import NamedTemporaryFile
